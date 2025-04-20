@@ -12,15 +12,35 @@ body {
   margin: 2rem auto;
   padding: 2rem;
   background: #fff;
-  border: 1px solid #ccc;
+  border: 1px solid #0c0c0c;
 }
 
 header {
   text-align: center;
   margin-bottom: 2rem;
+  display: flex;
+  flex-direction: row;
+}
+
+header img {
+  width: 150px;
+  height: auto;
+  margin-right: 1rem;
+  border-radius: 10px;
+}
+.header-text {
+  display: flex;
+  flex-direction: column;
+  align-self: start;
+  justify-content: start;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #000;
+  align-items: left;
 }
 
 header h1 {
+
   margin: 0;
   font-size: 2.8rem;
   font-weight: bold;
@@ -36,6 +56,12 @@ header p {
   color: #000;
 }
 
+.contact {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0 5rem;
+}
 section {
   margin-bottom: 2rem;
 }
@@ -65,4 +91,15 @@ a {
 
 a:hover {
   text-decoration: none;
+}
+
+/* Media queries for responsiveness */
+@media screen and (max-width: 600px) {
+  .cv-container {
+    padding: 1rem;
+  }
+  header {
+    flex-direction: column;
+    align-items: center;
+  }
 }
