@@ -13,18 +13,18 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         const data = await res.json();
 
-        const iconUrl = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+        const iconUrl = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
         const temp = Math.round(data.main.temp);
         const city = data.name;
 
-        document.getElementById("weather").innerHTML = `
+        document.getElementById("weather-div").innerHTML = `
             <img src="${iconUrl}" />
             <p class="weather-temp">${temp}ºc</p>
             <p class="weather-city">${city}</p>
         `;
       } catch (err) {
         console.error("Error fetching weather data:", err);
-        document.getElementById("weather").innerHTML = `
+        document.getElementById("weather-div").innerHTML = `
             <p>Unable to retrieve weather data</p>
         `;
       }
@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
             fetchWeatherData(lat, lon);
           } catch (err) {
             console.error("Error fetching IP-based location data:", err);
-            document.getElementById("weather").innerHTML = `
+            document.getElementById("weather-div").innerHTML = `
                     <p>Unable to retrieve location data</p>
                 `;
           }
