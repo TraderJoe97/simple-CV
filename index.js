@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const { OPENWEATHER_API_KEY, environment } = window.SiteConfig;
 
   console.log("Environment:", environment);
-  if (apiKey) {
+  if (OPENWEATHER_API_KEY) {
     async function fetchWeatherData(lat, lon) {
       try {
         const res = await fetch(
