@@ -1,5 +1,0 @@
-# Access environment variables
-env:
-  OPENWEATHER_API_KEY: <%= ENV['OPENWEATHER_API_KEY'] %>
-plugins:
-  - jekyll-dotenv

@@ -1,8 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const { OPENWEATHER_API_KEY, environment } = window.SiteConfig;
-
-  console.log("Environment:", environment);
-  if (OPENWEATHER_API_KEY) {
+const OPENWEATHER_API_KEY  = "c0230d3c366ca1fa56593ce4222985d0"
     async function fetchWeatherData(lat, lon) {
       try {
         const res = await fetch(
@@ -56,12 +52,3 @@ document.addEventListener("DOMContentLoaded", () => {
       );
     }
     getLocation();
-  } else {
-    console.error(
-      "API key is not defined. Weather data will not be displayed."
-    );
-    document.getElementById("weather").innerHTML = `
-        <p>Weather data is not available</p>
-    `;
-  }
-});
