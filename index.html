@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css" />
     <script>
       window.WeatherConfig = {
-        apiKey: "{{ site.env.openweather_api_key }}",
+        OPENWEATHER_API_KEY: "{{ site.env.OPENWEATHER_API_KEY }}",
         environment: "{{ jekyll.environment }}",
       };
     </script>

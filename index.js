@@ -1,12 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const { openWeatherAPI_key, environment } = window.SiteConfig;
+  const { OPENWEATHER_API_KEY, environment } = window.SiteConfig;
 
   console.log("Environment:", environment);
   if (apiKey) {
     async function fetchWeatherData(lat, lon) {
       try {
         const res = await fetch(
-          `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${openWeatherAPI_key}`
+          `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${OPENWEATHER_API_KEY}`
         );
         if (!res.ok) {
           throw Error("Weather data not available");
