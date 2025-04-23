@@ -1,64 +1,69 @@
 body {
-  font-family: 'Arial', sans-serif;
-  background: #f4f4f4;
-  color: #333;
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(to bottom, #e0f2f7, #f0f8ff);
+  color: #333; 
   margin: 0;
   padding: 0;
   line-height: 1.6;
+  font-size: 1.1rem;
+  scroll-behavior: smooth; 
 }
 
-.cv-container {
-  transition: background-color 0.3s ease;
-  max-width: 900px;
-  margin: 2rem auto;
-  padding: 2rem;
-  background: #fff;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-.cv-container:hover {
-  background-color: #f8f8f8;
-}
-
-header {
+.navbar {
+  background-color: white;
+  position: fixed; 
+  top: 0;
+  left: 0;
+  width: 100%;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  background-color: #003366;
-  color: #fff;
-  margin-bottom: 2rem;
-  flex-direction: row;
+  padding: 1rem;
+  z-index: 100; 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+}
+
+.nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.nav-links li {
+  margin-left: 1.5rem;
+}
+
+.nav-links a {
+  color: #333;
+  text-decoration: none;
+  text-transform: capitalize;
+  font-weight: normal;
+}
+
+.nav-links a:hover{
+  text-decoration: underline;
+}
+
+
+.weather {
+  background-color: #eee;
   padding: 1rem;
   border-radius: 5px;
 }
 
-header img {
-  width: 150px;
-  height: auto;
-  margin-right: 2rem;
+.cv-container {
+  background: white;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
-  border: 3px solid #fff;
+  max-width: 800px;
+  margin: 6rem auto 2rem; 
+  padding: 3rem;
 }
-.header-text {
+.profile-image-container{
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: 1.4rem;
-  font-weight: bold;
-  color: #fff;
-  text-align: center;
-  flex: 1;
-}
-
-header h1 {
-
-  margin: 0;
-  font-size: 2.8rem;
-}
-
-header p {
-  font-size: 1.2rem;
-  color: #333;
 }
 
 
@@ -80,12 +85,21 @@ header p {
 .contact p {
   margin-bottom: 0.5rem;
 }
+
+
+.profile-pic-contact{
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  padding: 1rem;
+}
+
 section {
   margin-bottom: 2rem;
-  padding: 1rem 0;
 }
 
 h2 {
+  color: #003366;
   font-size: 1.4rem;
   font-weight: bold;
   border-bottom: 1px solid #ccc;
@@ -105,12 +119,6 @@ li {
   border-bottom: 1px dashed #eee;
   padding-bottom: 0.5rem;
 }
-.weather {
-  background-color: #eee;
-  padding: 1rem;
-  margin-bottom: 1rem;
-  border-radius: 5px;
-}
 
 a {
   color: #0056b3;
@@ -119,17 +127,4 @@ a {
 
 a:hover {
   text-decoration: none;
-}
-
-/* Media queries for responsiveness */
-@media screen and (max-width: 600px) {
-  .cv-container {
-    padding: 1rem;
-  }
-
-  header {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
 }

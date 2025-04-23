@@ -7,27 +7,30 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div id="weather-div" class="weather"></div>
-    <div class="cv-container">
-      <header>
-        <div>
-          <img
-            src="https://avatars.githubusercontent.com/u/99967046"
-            alt="Joseph Monakedi"
-            class="profile-pic"
-          />
+    <nav class="navbar">
+      <div id="weather-div" class="weather"></div>
+      <ul class="nav-links">
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#interests">Interests</a></li>
+        <li>
           <a
             href="/Joseph Monakedi Resume.pdf"
             download="Joseph Monakedi Resume"
             class="download-button"
           >
-            Download Resume</a>
-        </div>
-        <div class="header-text">
-          <h1>Joseph Monakedi</h1>
-          <p>Software Developer</p>
-        </div>
-      </header>
+            Download Resume</a
+          >
+        </li>
+      </ul>
+    </nav>
+    <div id="weather-div" class="weather"></div>
+    <div class="cv-container">
+
+
+      
 
       <section class="contact">
         <p>
@@ -53,10 +56,17 @@
             >josephm.vercel.app</a
           >
         </p>
+        <div class="profile-image-container">
+        <img
+        src="https://avatars.githubusercontent.com/u/99967046"
+        alt="Joseph Monakedi"
+        class="profile-pic-contact"
+        />
+        </div>
       </section>
 
-      <section>
-        <h2>Education</h2>
+      <section id="education">
+        <h2 >Education</h2>
         <p>
           University of South Africa - BSC in Computing<br />Feb 2023 - Present
         </p>
@@ -70,8 +80,8 @@
         </p>
       </section>
 
-      <section>
-        <h2>Projects</h2>
+      <section id="projects">
+        <h2 >Projects</h2>
         <ul>
           <li>
             <strong>Joes-podcasts</strong><br />
@@ -103,8 +113,8 @@
         </ul>
       </section>
 
-      <section>
-        <h2>Skills</h2>
+      <section id="skills">
+        <h2 >Skills</h2>
         <p><strong>Languages:</strong> JavaScript, TypeScript, HTML, CSS</p>
         <p>
           <strong>Frameworks/Libraries:</strong> React, Tailwind CSS, Redux,
@@ -115,8 +125,8 @@
         <p><strong>Other:</strong> Responsive Design, Mobile-First, Agile</p>
       </section>
 
-      <section>
-        <h2>Interests</h2>
+      <section id="interests">
+        <h2 >Interests</h2>
         <p>Web Dev Blogs, Open Source, Learning New Languages</p>
       </section>
     </div>
