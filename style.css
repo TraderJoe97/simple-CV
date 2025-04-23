@@ -1,49 +1,59 @@
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #080b24;
-  color: #000;
+  font-family: 'Arial', sans-serif;
+  background: #f4f4f4;
+  color: #333;
   margin: 0;
   padding: 0;
   line-height: 1.6;
 }
 
 .cv-container {
+  transition: background-color 0.3s ease;
   max-width: 900px;
   margin: 2rem auto;
   padding: 2rem;
   background: #fff;
-  border: 1px solid #0c0c0c;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+.cv-container:hover {
+  background-color: #f8f8f8;
 }
 
 header {
-  text-align: center;
-  margin-bottom: 2rem;
   display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #003366;
+  color: #fff;
+  margin-bottom: 2rem;
   flex-direction: row;
+  padding: 1rem;
+  border-radius: 5px;
 }
 
 header img {
   width: 150px;
   height: auto;
-  margin-right: 1rem;
+  margin-right: 2rem;
   border-radius: 10px;
+  border: 3px solid #fff;
 }
 .header-text {
   display: flex;
   flex-direction: column;
-  align-self: start;
-  justify-content: start;
-  font-size: 1.5rem;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
   font-weight: bold;
-  color: #000;
-  align-items: left;
+  color: #fff;
+  text-align: center;
+  flex: 1;
 }
 
 header h1 {
 
   margin: 0;
   font-size: 2.8rem;
-  font-weight: bold;
 }
 
 header p {
@@ -51,42 +61,60 @@ header p {
   color: #333;
 }
 
-.contact p, .contact a {
-  font-size: 0.95rem;
-  color: #000;
-}
 
 .contact {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 0 5rem;
-}
-section {
+  text-align: center;
   margin-bottom: 2rem;
 }
 
+.contact p,
+.contact a {
+  font-size: 1rem;
+  color: #333;
+}
+.contact a{
+  color: #0056b3;
+  font-weight: bold;
+}
+
+.contact p {
+  margin-bottom: 0.5rem;
+}
+section {
+  margin-bottom: 2rem;
+  padding: 1rem 0;
+}
+
 h2 {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-weight: bold;
   border-bottom: 1px solid #ccc;
-  padding-bottom: 0.2rem;
-  margin-bottom: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05rem;
+  padding: 0.5rem 0 0.5rem 1rem;
+  margin-bottom: 1.5rem;
+  text-transform: capitalize;
 }
 
-ul {
-  padding-left: 1rem;
+ul,ol {
+  padding-left: 2rem;
 }
 
-ul li {
+li {
+  margin-bottom: 0.8rem;
+  line-height: 1.4;
+  list-style: disc;
+  border-bottom: 1px dashed #eee;
+  padding-bottom: 0.5rem;
+}
+.weather {
+  background-color: #eee;
+  padding: 1rem;
   margin-bottom: 1rem;
+  border-radius: 5px;
 }
 
 a {
-  color: #000;
-  text-decoration: underline;
+  color: #0056b3;
+  font-weight: bold;
 }
 
 a:hover {
@@ -98,8 +126,10 @@ a:hover {
   .cv-container {
     padding: 1rem;
   }
+
   header {
     flex-direction: column;
     align-items: center;
+    text-align: center;
   }
 }
