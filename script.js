@@ -78,34 +78,49 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   })
 })
 
-// Paper tilt effect on mouse move
+// Paper tilt effect on mouse move (only on desktop)
 const cvPaper = document.querySelector(".cv-paper")
 const maxTilt = 1.5
 
-document.addEventListener("mousemove", (e) => {
-  if (!cvPaper) return
+function isMobileDevice() {
+  return (
+    window.innerWidth <= 768 ||
+    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+  )
+}
 
-  const paperRect = cvPaper.getBoundingClientRect()
-  const paperCenterX = paperRect.left + paperRect.width / 2
-  const paperCenterY = paperRect.top + paperRect.height / 2
+// Only apply tilt effect on desktop devices
+if (!isMobileDevice()) {
+  document.addEventListener("mousemove", (e) => {
+    if (!cvPaper) return
 
-  const mouseX = e.clientX
-  const mouseY = e.clientY
+    const paperRect = cvPaper.getBoundingClientRect()
+    const paperCenterX = paperRect.left + paperRect.width / 2
+    const paperCenterY = paperRect.top + paperRect.height / 2
 
-  const distanceX = (mouseX - paperCenterX) / (paperRect.width / 2)
-  const distanceY = (mouseY - paperCenterY) / (paperRect.height / 2)
+    const mouseX = e.clientX
+    const mouseY = e.clientY
 
-  const tiltX = -distanceY * maxTilt
-  const tiltY = distanceX * maxTilt
+    const distanceX = (mouseX - paperCenterX) / (paperRect.width / 2)
+    const distanceY = (mouseY - paperCenterY) / (paperRect.height / 2)
 
-  cvPaper.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`
-})
+    const tiltX = -distanceY * maxTilt
+    const tiltY = distanceX * maxTilt
 
-// Reset tilt when mouse leaves the document
-document.addEventListener("mouseleave", () => {
-  if (!cvPaper) return
-  cvPaper.style.transform = "perspective(1000px) rotateX(2deg) rotateY(0deg)"
-})
+    cvPaper.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`
+  })
+
+  // Reset tilt when mouse leaves the document
+  document.addEventListener("mouseleave", () => {
+    if (!cvPaper) return
+    cvPaper.style.transform = "perspective(1000px) rotateX(2deg) rotateY(0deg)"
+  })
+} else {
+  // Disable the tilt effect on mobile
+  if (cvPaper) {
+    cvPaper.style.transform = "none"
+  }
+}
 
 // Initialize the weather widget
 document.addEventListener("DOMContentLoaded", () => {

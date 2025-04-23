@@ -21,15 +21,22 @@ body {
   padding: 20px;
   position: relative;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+}
+
+/* Mobile Header for Weather and Download */
+.mobile-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1000px;
+  margin-bottom: 20px;
 }
 
 /* Weather Widget */
 .weather-widget {
-  position: fixed;
-  top: 20px;
-  right: 20px;
   background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(10px);
   border-radius: 12px;
@@ -38,8 +45,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  z-index: 100;
   width: 150px;
+  margin-bottom: 20px;
 }
 
 .weather-widget img {
@@ -60,10 +67,7 @@ body {
 
 /* Download Button */
 .download-container {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  z-index: 100;
+  margin-bottom: 20px;
 }
 
 .download-button {
@@ -424,16 +428,23 @@ nav {
     padding: 20px;
   }
 
+  /* Reposition weather widget and download button on mobile */
   .weather-widget {
-    top: auto;
-    bottom: 20px;
-    right: 20px;
+    position: static;
+    margin: 0 auto 20px;
+    width: 100%;
+    max-width: 200px;
   }
 
   .download-container {
-    top: auto;
-    bottom: 20px;
-    left: 20px;
+    position: static;
+    margin: 0 auto 20px;
+    text-align: center;
+  }
+
+  /* Adjust portfolio container margin for mobile */
+  .portfolio-container {
+    margin-top: 20px;
   }
 }
 
@@ -449,5 +460,32 @@ nav {
   .skills-container {
     flex-direction: column;
     gap: 20px;
+  }
+}
+
+/* Desktop-only styles */
+@media (min-width: 769px) {
+  .background {
+    padding-top: 80px; /* Add space for fixed elements */
+  }
+
+  .mobile-header {
+    display: none; /* Hide mobile header on desktop */
+  }
+
+  .weather-widget {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    margin-bottom: 0;
+    z-index: 100;
+  }
+
+  .download-container {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    margin-bottom: 0;
+    z-index: 100;
   }
 }
