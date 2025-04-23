@@ -10,7 +10,7 @@ I'm a passionate Front-end Web Developer from Pretoria, South Africa, with hands
 
 You can view the live version of this CV here:
 
-👉 [josephm.vercel.app](https://josephm.vercel.app)
+👉 [live site](https://traderjoe97.github.io/simple-CV/)
 
 ## 📁 Project Structure
 

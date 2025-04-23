@@ -1,9 +1,9 @@
 body {
   font-family: 'Roboto', sans-serif;
-  background: linear-gradient(to bottom, #e0f2f7, #f0f8ff);
-  color: #333; 
+  background-color: #121212; /* Dark background */
+  color: #ccc; /* Light text */
   margin: 0;
-  padding: 0;
+  padding: 0; 
   line-height: 1.6;
   font-size: 1.1rem;
   scroll-behavior: smooth; 
@@ -20,7 +20,7 @@ body {
   align-items: center;
   padding: 1rem;
   z-index: 100; 
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1); /* Light box-shadow */
 }
 
 .nav-links {
@@ -35,14 +35,14 @@ body {
 }
 
 .nav-links a {
-  color: #333;
+  color: #ccc;
   text-decoration: none;
   text-transform: capitalize;
   font-weight: normal;
 }
 
 .nav-links a:hover{
-  text-decoration: underline;
+  color: #64b5f6; /* Blue accent on hover */
 }
 
 
@@ -50,25 +50,29 @@ body {
   background-color: #eee;
   padding: 1rem;
   border-radius: 5px;
+  background: rgba(255, 255, 255, 0.1); /* Glassy effect */
+  backdrop-filter: blur(10px); /* Glassy effect */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .cv-container {
-  background: white;
+  background: #fff; /* White background for CV */
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   max-width: 800px;
-  margin: 6rem auto 2rem; 
+  margin: 8rem auto 2rem; 
   padding: 3rem;
 }
 .profile-image-container{
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center;  
 }
 
 
 .contact {
-  text-align: center;
+  text-align: center; 
   margin-bottom: 2rem;
 }
 
@@ -77,10 +81,11 @@ body {
   font-size: 1rem;
   color: #333;
 }
+
 .contact a{
-  color: #0056b3;
+  color: #64b5f6; /* Blue accent color */
   font-weight: bold;
-}
+} 
 
 .contact p {
   margin-bottom: 0.5rem;
@@ -99,14 +104,14 @@ section {
 }
 
 h2 {
-  color: #003366;
+  color: #003366; /* Dark blue header color */
   font-size: 1.4rem;
   font-weight: bold;
   border-bottom: 1px solid #ccc;
   padding: 0.5rem 0 0.5rem 1rem;
   margin-bottom: 1.5rem;
   text-transform: capitalize;
-}
+} 
 
 ul,ol {
   padding-left: 2rem;
@@ -114,17 +119,17 @@ ul,ol {
 
 li {
   margin-bottom: 0.8rem;
-  line-height: 1.4;
+  line-height: 1.4; 
   list-style: disc;
-  border-bottom: 1px dashed #eee;
+  border-bottom: 1px dashed #ddd;
   padding-bottom: 0.5rem;
 }
 
 a {
-  color: #0056b3;
+  color: #64b5f6; /* Blue accent color */
   font-weight: bold;
 }
 
-a:hover {
+a:hover { 
   text-decoration: none;
 }
