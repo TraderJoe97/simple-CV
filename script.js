@@ -88,11 +88,9 @@ function isMobileDevice() {
     /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
   )
 }
-let isTiltEnabled = false
-const toggleSwitch = document.getElementById('tilt-switch');
 
-// Function to apply or remove tilt effect based on toggle
-if (!isMobileDevice() && !toggleTilt) {
+// Only apply tilt effect on desktop devices
+if (!isMobileDevice()) {
   document.addEventListener("mousemove", (e) => {
     if (!cvPaper) return
 
@@ -111,53 +109,20 @@ if (!isMobileDevice() && !toggleTilt) {
 
     cvPaper.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`
   })
-}
 
-function handleTiltEffect() {
-  if (isTiltEnabled && !isMobileDevice()) {
-    document.addEventListener("mousemove", handleMouseMove);
-    document.addEventListener("mouseleave", handleMouseLeave);
-  } else {
-    document.removeEventListener("mousemove", handleMouseMove);
-    document.removeEventListener("mouseleave", handleMouseLeave);
-    if (cvPaper) {
-        cvPaper.style.transform = "perspective(1000px) rotateX(2deg) rotateY(0deg)";
-    }
+  // Reset tilt when mouse leaves the document
+  document.addEventListener("mouseleave", () => {
+    if (!cvPaper) return
+    cvPaper.style.transform = "perspective(1000px) rotateX(2deg) rotateY(0deg)"
+  })
+} else {
+  // Disable the tilt effect on mobile
+  if (cvPaper) {
+    cvPaper.style.transform = "none"
   }
-}
-
-function handleMouseMove(e) {
-    if (!cvPaper) return;
-    const paperRect = cvPaper.getBoundingClientRect();
-    const paperCenterX = paperRect.left + paperRect.width / 2;
-    const paperCenterY = paperRect.top + paperRect.height / 2;
-    const mouseX = e.clientX;
-    const mouseY = e.clientY;
-    const distanceX = (mouseX - paperCenterX) / (paperRect.width / 2);
-    const distanceY = (mouseY - paperCenterY) / (paperRect.height / 2);
-    const tiltX = -distanceY * maxTilt;
-    const tiltY = distanceX * maxTilt;
-    cvPaper.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
-}
-function handleMouseLeave() {
-    if (cvPaper) cvPaper.style.transform = "perspective(1000px) rotateX(2deg) rotateY(0deg)";
 }
 
 // Initialize the weather widget
 document.addEventListener("DOMContentLoaded", () => {
   getLocation()
 })
-
-if (toggleSwitch) {
-    toggleSwitch.addEventListener('change', function() {
-        if (this.checked) {
-            isTiltEnabled = true;
-            handleTiltEffect();
-        } else {
-            isTiltEnabled = false;
-            handleTiltEffect();
-        }
-    });
-}
-
-handleTiltEffect()
