@@ -1,5 +1,36 @@
 // Weather Widget Functionality
 const OPENWEATHER_API_KEY = "c0230d3c366ca1fa56593ce4222985d0"
+const UNSPLASH_API_KEY = "Q_iH5F8wY0I06y4-b428p_3vF35Qx25xG1lV117iR_w"
+const queryKeywords = ["coding", "books", "learning", "tech"]
+
+async function changeBackgroundImage() {
+  try {
+    const randomQuery = queryKeywords[Math.floor(Math.random() * queryKeywords.length)]
+    const response = await fetch(
+      `https://api.unsplash.com/photos/random?query=${randomQuery}&client_id=${UNSPLASH_API_KEY}`,
+    )
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`)
+    }
+    const data = await response.json()
+    if (data && data.urls && data.urls.full) {
+      const backgroundDiv = document.getElementById("background-div");
+      backgroundDiv.style.backgroundImage = `url(${data.urls.full})`;
+      backgroundDiv.style.backgroundSize = "cover";
+      backgroundDiv.style.backgroundRepeat = "no-repeat";
+      backgroundDiv.style.backgroundAttachment = "fixed";
+    } else {
+      throw new Error("Invalid response format from Unsplash API")
+    }
+  } catch (error) {
+    console.error("Error fetching or applying Unsplash background image:", error)
+    document.body.style.backgroundImage = `url("https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")`
+        const backgroundDiv = document.getElementById("background-div");
+        backgroundDiv.style.backgroundImage = `url("https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")`;
+        backgroundDiv.style.backgroundSize = "cover";
+        backgroundDiv.style.backgroundRepeat = "no-repeat";
+        backgroundDiv.style.backgroundAttachment = "fixed";  }
+}
 
 async function fetchWeatherData(lat, lon) {
   try {
@@ -15,16 +46,17 @@ async function fetchWeatherData(lat, lon) {
     const iconUrl = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
     const temp = Math.round(data.main.temp)
     const city = data.name
+    const weatherWidget = document.getElementById("weather-widget");
 
-    document.getElementById("weather-widget").innerHTML = `
-      <img src="${iconUrl}" alt="${data.weather[0].description}">
+    weatherWidget.innerHTML = `
+      <img src="${iconUrl}" alt="${data.weather[0].description}" />
       <p class="weather-temp">${temp}°C</p>
       <p class="weather-city">${city}</p>
     `
   } catch (err) {
     console.error("Error fetching weather data:", err)
     document.getElementById("weather-widget").innerHTML = `
-      <p>Unable to retrieve weather data</p>
+      <p>Unable to retrieve weather data.</p>
     `
   }
 }
@@ -49,14 +81,14 @@ function getLocation() {
         } catch (err) {
           console.error("Error fetching IP-based location data:", err)
           document.getElementById("weather-widget").innerHTML = `
-            <p>Unable to retrieve location data</p>
+            <p>Unable to retrieve location data.</p>
           `
         }
       },
     )
   } else {
     document.getElementById("weather-widget").innerHTML = `
-      <p>Geolocation not supported</p>
+      <p>Geolocation not supported.</p>
     `
   }
 }
@@ -125,4 +157,5 @@ if (!isMobileDevice()) {
 // Initialize the weather widget
 document.addEventListener("DOMContentLoaded", () => {
   getLocation()
+  changeBackgroundImage()
 })
