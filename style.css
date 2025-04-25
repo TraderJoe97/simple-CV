@@ -47,6 +47,7 @@ body {
   align-items: center;
   width: 150px;
   margin-bottom: 20px;
+  color: white;
 }
 
 .weather-widget img {
@@ -62,7 +63,6 @@ body {
 
 .weather-city {
   font-size: 0.9rem;
-  color: #666;
 }
 
 /* Download Button */
