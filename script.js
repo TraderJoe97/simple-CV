@@ -1,13 +1,13 @@
 // Weather Widget Functionality
 const OPENWEATHER_API_KEY = "c0230d3c366ca1fa56593ce4222985d0"
 const UNSPLASH_API_KEY = "Q_iH5F8wY0I06y4-b428p_3vF35Qx25xG1lV117iR_w"
-const queryKeywords = ["coding", "books", "learning", "tech"]
+const queryKeywords = ["Coding", "Programing","Books", "learning", "tech"]
 
 async function changeBackgroundImage() {
   try {
     const randomQuery = queryKeywords[Math.floor(Math.random() * queryKeywords.length)]
     const response = await fetch(
-      `https://api.unsplash.com/photos/random?query=${randomQuery}&client_id=${UNSPLASH_API_KEY}`,
+      `https://api.unsplash.com/photos/random?query=${randomQuery}&client_id=${UNSPLASH_API_KEY}&orientation=portrait`,
     )
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`)
