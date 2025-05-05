@@ -1,6 +1,6 @@
 // Weather Widget Functionality
 const OPENWEATHER_API_KEY = "c0230d3c366ca1fa56593ce4222985d0"
-const UNSPLASH_API_KEY = "Q_iH5F8wY0I06y4-b428p_3vF35Qx25xG1lV117iR_w"
+const UNSPLASH_API_KEY = "KDzBDB93q0BzpmTU4yW2OzGGdcjvIGViPEu_zFTzj8Q"
 const queryKeywords = ["Coding", "Programing","Books", "learning", "tech"]
 const randomQuery = queryKeywords[Math.floor(Math.random() * queryKeywords.length)]
 
