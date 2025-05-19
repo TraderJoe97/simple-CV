@@ -512,3 +512,23 @@ nav {
     z-index: 100;
   }
 }
+
+/* Print Mode Styles */
+.cv-container.print-mode {
+  width: 100vw !important;
+  max-width: 100vw !important;
+  height: 100vh !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+/* Print Styles */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .cv-container,
+  .cv-container * { visibility: visible; }
+}

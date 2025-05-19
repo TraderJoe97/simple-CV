@@ -154,6 +154,21 @@ if (!isMobileDevice()) {
   }
 }
 
+// Download button functionality
+const downloadButton = document.getElementById("download-button");
+if (downloadButton) {
+  downloadButton.addEventListener("click", () => {
+    const cvContainer = document.querySelector(".cv-container");
+    if (cvContainer) {
+      cvContainer.classList.add("print-mode");
+      window.print();
+      // Delay removing the class slightly to ensure rendering is complete
+      setTimeout(() => {
+        cvContainer.classList.remove("print-mode");
+      }, 100); 
+    }
+  });
+}
 // Initialize the weather widget
 document.addEventListener("DOMContentLoaded", () => {
   getLocation()
