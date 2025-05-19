@@ -365,6 +365,29 @@ nav {
   color: #64748b;
 }
 
+/* Certifications Section */
+.certifications-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.certification-item {
+  display: flex;
+  gap: 20px;
+}
+
+.certification-details h4 {
+  font-size: 1.1rem;
+  color: #1e293b;
+  margin-bottom: 5px;
+}
+
+.certification-details p {
+  font-size: 0.9rem;
+  color: #64748b;
+}
+
 /* Contact Section */
 .contact-container {
   display: grid;
