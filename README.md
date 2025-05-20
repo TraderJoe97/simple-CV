@@ -1,6 +1,6 @@
 # Joseph Monakedi - Developer CV
 
-This repository contains a simple, responsive Curriculum Vitae (CV) for **Joseph Monakedi**, built using only HTML and CSS. It's a clean, static site that showcases my professional profile, skills, projects, education, and interests.
+This repository contains a simple, responsive Curriculum Vitae (CV) for **Joseph Monakedi**, built using next.js . It's a clean, static site that showcases my professional profile, skills, projects, education, and interests.
 
 ## 🧾 About
 

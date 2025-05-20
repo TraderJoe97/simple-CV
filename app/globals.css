@@ -1,15 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f5f5f5;
+}
+
 /* Base Styles */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-body {
-  font-family: "Poppins", sans-serif;
-  line-height: 1.6;
-  color: #333;
-  background-color: #f5f5f5;
+  @apply border-border;
 }
 
 .background {
@@ -23,6 +28,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  @apply bg-background text-foreground;
 }
 
 /* Mobile Header for Weather and Download */
@@ -48,6 +54,7 @@ body {
   width: 150px;
   margin-bottom: 20px;
   color: white;
+  z-index: 100;
 }
 
 .weather-widget img {
@@ -68,6 +75,7 @@ body {
 /* Download Button */
 .download-container {
   margin-bottom: 20px;
+  z-index: 100;
 }
 
 .download-button {
@@ -80,12 +88,20 @@ body {
   font-weight: 500;
   box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
   transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
 }
 
 .download-button:hover {
   background: #1d4ed8;
   transform: translateY(-2px);
   box-shadow: 0 6px 8px rgba(37, 99, 235, 0.3);
+}
+
+.download-button:disabled {
+  background: #93c5fd;
+  cursor: not-allowed;
+  transform: none;
 }
 
 .download-button i {
@@ -155,6 +171,7 @@ nav {
   transform: perspective(1000px) rotateX(2deg);
   transform-origin: top center;
   position: relative;
+  transition: transform 0.3s ease;
 }
 
 .cv-paper::before {
@@ -168,12 +185,41 @@ nav {
 }
 
 .paper-content {
-  padding: 40px;
+  padding: 25px;
+}
+
+/* PDF Mode - used during PDF generation */
+.pdf-mode {
+  transform: none !important;
+  box-shadow: none !important;
+  max-width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  background-color: white !important;
+}
+
+.pdf-mode .cv-section {
+  page-break-inside: avoid;
+}
+
+.pdf-mode .paper-content {
+  padding: 20px !important;
+}
+
+/* PDF links styling */
+.pdf-link {
+  color: #2563eb !important;
+  text-decoration: underline !important;
+}
+
+.link-indicator {
+  font-size: 0.8em;
+  color: #2563eb;
 }
 
 /* CV Sections */
 .cv-section {
-  margin-bottom: 40px;
+  margin-bottom: 15px;
   position: relative;
 }
 
@@ -182,32 +228,35 @@ nav {
 }
 
 .cv-section h3 {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   color: #2563eb;
-  margin-bottom: 20px;
-  padding-bottom: 10px;
+  margin-bottom: 8px;
+  padding-bottom: 4px;
   border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
 }
 
 .cv-section h3 i {
-  margin-right: 10px;
+  margin-right: 8px;
+  color: #2563eb;
 }
 
 /* Profile Header */
 .profile-header {
   display: flex;
   align-items: center;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
+  gap: 20px;
 }
 
 .profile-image {
-  width: 120px;
-  height: 120px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
   overflow: hidden;
-  border: 4px solid white;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  margin-right: 30px;
+  border: 2px solid #e5e7eb;
+  flex-shrink: 0;
 }
 
 .profile-image img {
@@ -217,17 +266,17 @@ nav {
 }
 
 .profile-info h1 {
-  font-size: 2.5rem;
+  font-size: 1.8rem;
   font-weight: 700;
   color: #1e293b;
-  margin-bottom: 5px;
+  margin-bottom: 2px;
 }
 
 .profile-info h2 {
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 500;
   color: #64748b;
-  margin-bottom: 10px;
+  margin-bottom: 3px;
 }
 
 .location {
@@ -240,16 +289,76 @@ nav {
 }
 
 .about-text {
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: #4b5563;
-  line-height: 1.8;
+  line-height: 1.5;
 }
 
 /* Skills Section */
+/* Skills Section - Grid Layout */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.skill-category {
+  min-width: 0; /* Prevent overflow */
+}
+
+.skill-category h4 {
+  font-size: 0.95rem;
+  color: #1e293b;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.skill-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.skill-list li {
+  position: relative;
+  padding-left: 12px;
+  margin-bottom: 3px;
+  color: #4b5563;
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+.skill-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #2563eb;
+  font-size: 1rem;
+}
+
+/* Make sure the skills section doesn't wrap on smaller screens but before PDF generation */
+@media (max-width: 768px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* PDF Mode - ensure skills don't wrap in PDF */
+.pdf-mode .skills-grid {
+  grid-template-columns: repeat(4, 1fr);
+}
+
 .skills-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 30px;
+  gap: 15px;
 }
 
 .skill-category {
@@ -258,9 +367,9 @@ nav {
 }
 
 .skill-category h4 {
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: #1e293b;
-  margin-bottom: 15px;
+  margin-bottom: 8px;
 }
 
 .skill-list {
@@ -270,8 +379,9 @@ nav {
 .skill-list li {
   position: relative;
   padding-left: 20px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   color: #4b5563;
+  font-size: 0.9rem;
 }
 
 .skill-list li::before {
@@ -286,13 +396,13 @@ nav {
 .projects-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 20px;
+  gap: 15px;
 }
 
 .project-card {
   background: #f8fafc;
   border-radius: 8px;
-  padding: 20px;
+  padding: 15px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -303,15 +413,15 @@ nav {
 }
 
 .project-card h4 {
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: #1e293b;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .project-card p {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: #64748b;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .project-links {
@@ -338,38 +448,48 @@ nav {
 /* Education Section */
 .education-container {
   display: flex;
-  flex-direction: column;
-  gap: 20px;
+  flex-wrap: wrap;
+  gap: 15px;
+  flex-direction: row;
 }
 
 .education-item {
   display: flex;
-  gap: 20px;
+  flex-direction: column;
+  gap: 5px;
+  flex: 1;
+  min-width: 200px;
+  max-width: 300px;
+  background: #f8fafc;
+  border-radius: 8px;
+  padding: 12px;
 }
 
 .education-date {
   min-width: 180px;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   color: #64748b;
+  font-weight: 500;
   padding-top: 3px;
 }
 
 .education-details h4 {
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: #1e293b;
-  margin-bottom: 5px;
+  margin-bottom: 2px;
 }
 
 .education-details p {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: #64748b;
 }
 
 /* Certifications Section */
 .certifications-container {
   display: flex;
-  flex-direction: column;
-  gap: 20px;
+  flex-wrap: wrap;
+  gap: 15px;
+  flex-direction: row;
 }
 
 .certification-item {
@@ -377,28 +497,47 @@ nav {
   gap: 20px;
 }
 
+.certification-item {
+  flex: 1;
+  min-width: 200px;
+  max-width: 300px;
+  background: #f8fafc;
+  border-radius: 8px;
+  padding: 12px;
+}
+
 .certification-details h4 {
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: #1e293b;
-  margin-bottom: 5px;
+  margin-bottom: 2px;
 }
 
 .certification-details p {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: #64748b;
+}
+
+.certification-details a {
+  color: #2563eb;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.certification-details a:hover {
+  text-decoration: underline;
 }
 
 /* Contact Section */
 .contact-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 20px;
+  gap: 10px;
 }
 
 .contact-item {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
 }
 
 .contact-item i {
@@ -410,7 +549,7 @@ nav {
 
 .contact-item a,
 .contact-item p {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: #4b5563;
   text-decoration: none;
   transition: color 0.3s ease;
@@ -418,6 +557,97 @@ nav {
 
 .contact-item a:hover {
   color: #2563eb;
+}
+
+/* Interests section - more compact */
+#interests p {
+  font-size: 0.9rem;
+}
+
+/* Contact grid layout */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --radius: 0.5rem;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
 }
 
 /* Responsive Styles */
@@ -452,7 +682,7 @@ nav {
   }
 
   /* Reposition weather widget and download button on mobile */
-  .weather-widget {
+  .weather-widget-container {
     position: static;
     margin: 0 auto 20px;
     width: 100%;
@@ -468,6 +698,11 @@ nav {
   /* Adjust portfolio container margin for mobile */
   .portfolio-container {
     margin-top: 20px;
+  }
+
+  /* Disable tilt effect on mobile */
+  .cv-paper {
+    transform: none;
   }
 }
 
@@ -496,12 +731,11 @@ nav {
     display: none; /* Hide mobile header on desktop */
   }
 
-  .weather-widget {
+  .weather-widget-container {
     position: fixed;
     top: 20px;
     right: 20px;
     margin-bottom: 0;
-    z-index: 100;
   }
 
   .download-container {
@@ -509,26 +743,10 @@ nav {
     top: 20px;
     left: 20px;
     margin-bottom: 0;
-    z-index: 100;
   }
-}
 
-/* Print Mode Styles */
-.cv-container.print-mode {
-  width: 100vw !important;
-  max-width: 100vw !important;
-  height: 100vh !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  box-shadow: none !important;
-  transform: none !important;
-}
-
-/* Print Styles */
-@media print {
-  body * {
-    visibility: hidden;
+  /* Paper tilt effect on desktop */
+  .cv-paper {
+    transition: transform 0.3s ease;
   }
-  .cv-container,
-  .cv-container * { visibility: visible; }
 }
