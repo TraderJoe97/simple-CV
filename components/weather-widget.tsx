@@ -13,7 +13,7 @@ export function WeatherWidget() {
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
-    const OPENWEATHER_API_KEY = "c0230d3c366ca1fa56593ce4222985d0"
+    const OPENWEATHER_API_KEY = process.env.OPENWEATHER_API_KEY
 
     const fetchWeatherData = async (lat: number, lon: number) => {
       try {
