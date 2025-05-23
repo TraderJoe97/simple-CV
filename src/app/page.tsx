@@ -1,3 +1,4 @@
+"use client"
 import { WeatherWidget } from "@/components/weather-widget"
 import { DownloadButton } from "@/components/download-button"
 import { Navigation } from "@/components/navigation"
@@ -26,3 +27,4 @@ export default function Home() {
     </BackgroundImage>
   )
 }
+
