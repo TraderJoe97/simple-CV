@@ -13,7 +13,7 @@ export function BackgroundImage({ children }: BackgroundImageProps) {
 
   useEffect(() => {
     const fetchBackgroundImage = async () => {
-      const UNSPLASH_API_KEY = process.env.UNSPLASH_API_KEY
+      const UNSPLASH_API_KEY = process.env.NEXT_PUBLIC_UNSPLASH_API_KEY
       const queryKeywords = ["Coding", "Programming", "Books", "Learning", "Tech"]
       const randomQuery = queryKeywords[Math.floor(Math.random() * queryKeywords.length)]
 

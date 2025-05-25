@@ -76,8 +76,8 @@ jobs:
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
         env:
-          OPEN_WEATHER_API_KEY: ${{ secrets.OPEN_WEATHER_API_KEY }}
-          UNSPLASH_API_KEY: ${{ secrets.UNSPLASH_API_KEY }}
+          NEXT_PUBLIC_OPEN_WEATHER_API_KEY: ${{ secrets.OPEN_WEATHER_API_KEY }}
+          NEXT_PUBLIC_UNSPLASH_API_KEY: ${{ secrets.UNSPLASH_API_KEY }}
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
