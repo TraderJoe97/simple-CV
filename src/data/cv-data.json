@@ -35,7 +35,14 @@
       "value": "josephm.vercel.app",
       "icon": "fas fa-globe",
       "link": "https://josephm.vercel.app"
+    },
+    {
+      "type": "resume",
+      "value": "https://simple-cv-olive.vercel.app/",
+      "icon": "fas fa-file",
+      "link": "https://simple-cv-olive.vercel.app/"
     }
+
   ],
   "skills": [
     {
