@@ -92,6 +92,21 @@
       ]
     },
     {
+      "title": "Item Counter API",
+      "description": "RESTful API built with ASP.NET Core 9.0 to count item occurrences in a list.",
+      "links": [
+        {
+          "text": "GitHub",
+          "url": "https://github.com/TraderJoe97/ItemCounterApi"
+        },
+        {
+          "text": "Live API",
+          "url": "https://itemcounterapi-production.up.railway.app/"
+        }
+      ]
+    },
+
+    {
       "title": "Kanban Task Management",
       "description": "Agile task manager with drag-and-drop and team features.",
       "links": [
