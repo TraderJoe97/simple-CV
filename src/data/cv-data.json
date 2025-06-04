@@ -65,7 +65,7 @@
   "projects": [
     {
       "title": "Joes-podcasts",
-      "description": "Responsive podcast app with modern UI and audio playback.",
+      "description": "Responsive podcast app with modern UI and audio playback. built with react and tailwind css",
       "links": [
         {
           "text": "Live Demo",
@@ -79,7 +79,7 @@
     },
     {
       "title": "Shortly",
-      "description": "Link shortener with clean interface and URL management.",
+      "description": "Link shortener with clean interface and URL management. built with react and TailwindCSS",
       "links": [
         {
           "text": "Live Demo",
@@ -108,7 +108,7 @@
 
     {
       "title": "Kanban Task Management",
-      "description": "Agile task manager with drag-and-drop and team features.",
+      "description": "Agile task manager  built with Html and Javascript",
       "links": [
         {
           "text": "Live Demo",
@@ -125,7 +125,8 @@
     {
       "degree": "BSC in Computing",
       "institution": "University of South Africa",
-      "period": "Feb 2023 - Present"
+      "period": "Feb 2023 - Present",
+      "status": "Incomplete (Completed Second Year)"
     },
     {
       "degree": "Software Development Bootcamp",

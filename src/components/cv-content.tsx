@@ -96,6 +96,9 @@ export function CVContent() {
               <div className="education-details">
                 <h4>{edu.degree}</h4>
                 <p>{edu.institution}</p>
+                {edu.status && (
+                  <p className="education-status">{String(edu.status)}</p>
+                )}
               </div>
             </div>
           ))}
