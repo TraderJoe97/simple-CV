@@ -128,12 +128,6 @@ export function CVContent() {
         </div>
       </section>
 
-      <section id="interests" className="cv-section">
-        <h3>
-          <i className="fas fa-heart"></i> Interests
-        </h3>
-        <p>{cvData.interests.join(", ")}</p>
-      </section>
     </div>
   )
 }

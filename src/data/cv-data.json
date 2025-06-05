@@ -1,12 +1,12 @@
 {
   "profile": {
     "name": "Joseph Monakedi",
-    "title": "Front-end Web Developer",
+    "title": "Software Developer",
     "location": "Pretoria, South Africa",
     "image": "https://avatars.githubusercontent.com/u/99967046",
-    "about": "Front-end Web Developer with hands-on experience from a rigorous bootcamp. Specializing in responsive, user-friendly web applications using modern technologies.",
- "branding": "AMBITIOUS | DEPENDABLE | CONSISTANT "
- },
+    "about": "Software Developer with experience building robust applications. Skilled in modern technologies including C#, JavaScript, TypeScript, React, and .NET Framework.",
+    "branding": "AMBITIOUS | DEPENDABLE | CONSISTANT "
+  },
   "contact": [
     {
       "type": "email",
@@ -149,6 +149,5 @@
       "title": "Microsoft Certified: Azure Fundamentals",
       "link": "https://learn.microsoft.com/en-us/users/josephmonakedi-3876/credentials/b36fb64f93f32d7?ref=https%3A%2F%2Fwww.linkedin.com%2F"
     }
-  ],
-  "interests": ["Web Dev Blogs", "Open Source", "Learning New Languages"]
+  ]
 }
