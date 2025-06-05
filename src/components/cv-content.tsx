@@ -19,6 +19,9 @@ export function CVContent() {
             <p className="location">
               <i className="fas fa-map-marker-alt"></i> {cvData.profile.location}
             </p>
+            <p className="branding-keywords">
+              {cvData.profile.branding}
+            </p>
           </div>
         </div>
         <div className="about-text">
