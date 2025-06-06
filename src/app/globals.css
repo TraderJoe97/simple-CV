@@ -219,7 +219,7 @@ nav {
 
 /* CV Sections */
 .cv-section {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   position: relative;
 }
 
@@ -230,8 +230,8 @@ nav {
 .cv-section h3 {
   font-size: 1.2rem;
   color: #2563eb;
-  margin-bottom: 8px;
-  padding-bottom: 4px;
+  margin-bottom: 5px;
+  padding-bottom: 2px;
   border-bottom: 1px solid #e5e7eb;
   display: flex;
   align-items: center;
@@ -256,8 +256,8 @@ nav {
   color: #1e293b;
 }
 .profile-image {
-  width: 180px;
-  height: 180px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   overflow: hidden;
   border: 2px solid #e5e7eb;
@@ -281,7 +281,7 @@ nav {
   font-size: 1rem;
   font-weight: 500;
   color: #64748b;
-  margin-bottom: 3px;
+  margin-bottom: 2px;
 }
 
 .location {
@@ -306,7 +306,7 @@ nav {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
-  margin-top: 10px;
+  margin-top: 5px;
 }
 
 .skill-category {
@@ -329,10 +329,11 @@ nav {
 .skill-list li {
   position: relative;
   padding-left: 12px;
-  margin-bottom: 3px;
+  margin-bottom: 1px;
   color: #4b5563;
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   white-space: nowrap;
+  line-height: 0.9;
 }
 
 .skill-list li::before {
