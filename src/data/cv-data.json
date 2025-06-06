@@ -52,7 +52,7 @@
     },
     {
       "category": "Frameworks/Libraries",
-      "items": ["React", "Tailwind CSS", "Redux", "React Router", ".net Core Framework"]
+      "items": ["React", "Tailwind CSS", "Redux", "React Router", "ASP.NET Core MVC", "Bootstrap","Razor Views" ]
     },
     {
       "category": "Databases",
@@ -60,7 +60,7 @@
     },
     {
       "category": "Tools & Others",
-      "items": ["Git & GitHub", "VS Code", "Responsive Design", "Mobile-First approach", "Agile Development"]
+      "items": ["Git & GitHub", "VS Code","Visual Studio","Microsoft Planner", "Responsive Design", "Mobile-First approach", "Agile Development"]
     }
   ],
   "projects": [
