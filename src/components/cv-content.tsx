@@ -49,45 +49,6 @@ export function CVContent() {
         </div>
       </section>
 
-      <section id="skills" className="cv-section">
-        <h3>
-          <i className="fas fa-code"></i> Skills
-        </h3>
-        <div className="skills-grid">
-          {cvData.skills.map((category, index) => (
-            <div key={index} className="skill-category">
-              <h4>{category.category}</h4>
-              <ul className="skill-list">
-                {category.items.map((skill, skillIndex) => (
-                  <li key={skillIndex}>{skill}</li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section id="projects" className="cv-section">
-        <h3>
-          <i className="fas fa-laptop-code"></i> Projects
-        </h3>
-        <div className="projects-container">
-          {cvData.projects.map((project, index) => (
-            <div key={index} className="project-card">
-              <h4>{project.title}</h4>
-              <p>{project.description}</p>
-              <div className="project-links">
-                {project.links.map((link, linkIndex) => (
-                  <a key={linkIndex} href={link.url} target="_blank" rel="noopener noreferrer" className="project-link">
-                    {link.text}
-                  </a>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
       <section id="education" className="cv-section">
         <h3>
           <i className="fas fa-graduation-cap"></i> Education
@@ -108,6 +69,24 @@ export function CVContent() {
         </div>
       </section>
 
+      <section id="skills" className="cv-section">
+        <h3>
+          <i className="fas fa-code"></i> Skills
+        </h3>
+        <div className="skills-grid">
+          {cvData.skills.map((category, index) => (
+            <div key={index} className="skill-category">
+              <h4>{category.category}</h4>
+              <ul className="skill-list">
+                {category.items.map((skill, skillIndex) => (
+                  <li key={skillIndex}>{skill}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </section>
+
       <section id="certifications" className="cv-section">
         <h3>
           <i className="fas fa-award"></i> Certifications
@@ -122,6 +101,27 @@ export function CVContent() {
                     View Certification
                   </a>
                 </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section id="projects" className="cv-section">
+        <h3>
+          <i className="fas fa-laptop-code"></i> Projects
+        </h3>
+        <div className="projects-container">
+          {cvData.projects.map((project, index) => (
+            <div key={index} className="project-card">
+              <h4>{project.title}</h4>
+              <p>{project.description}</p>
+              <div className="project-links">
+                {project.links.map((link, linkIndex) => (
+                  <a key={linkIndex} href={link.url} target="_blank" rel="noopener noreferrer" className="project-link">
+                    {link.text}
+                  </a>
+                ))}
               </div>
             </div>
           ))}

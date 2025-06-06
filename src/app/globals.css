@@ -203,7 +203,7 @@ nav {
 }
 
 .pdf-mode .paper-content {
-  padding: 20px !important;
+  padding: 30px !important;
 }
 
 /* PDF links styling */
@@ -249,10 +249,15 @@ nav {
   margin-bottom: 15px;
   gap: 20px;
 }
-
+/* Branding Text */
+.branding-keywords {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #1e293b;
+}
 .profile-image {
-  width: 80px;
-  height: 80px;
+  width: 180px;
+  height: 180px;
   border-radius: 50%;
   overflow: hidden;
   border: 2px solid #e5e7eb;
@@ -266,13 +271,13 @@ nav {
 }
 
 .profile-info h1 {
-  font-size: 1.8rem;
+  font-size: 2.5rem;
   font-weight: 700;
   color: #1e293b;
   margin-bottom: 2px;
 }
 
-.profile-info h2 {
+.profile-info h2 { /* Increased font size and weight */
   font-size: 1rem;
   font-weight: 500;
   color: #64748b;
@@ -293,6 +298,7 @@ nav {
   color: #4b5563;
   line-height: 1.5;
 }
+
 
 /* Skills Section */
 /* Skills Section - Grid Layout */

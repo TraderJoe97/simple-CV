@@ -47,12 +47,12 @@
   ],
   "skills": [
     {
-      "category": "Languages",
+      "category": "Programing and Development",
       "items": ["C#", "JavaScript", "TypeScript", "HTML", "CSS"]
     },
     {
       "category": "Frameworks/Libraries",
-      "items": ["React", "Tailwind CSS", "Redux", "React Router", ".net Framework"]
+      "items": ["React", "Tailwind CSS", "Redux", "React Router", ".net Core Framework"]
     },
     {
       "category": "Databases",
@@ -117,9 +117,9 @@
         },
         {
           "text": "GitHub",
-          "url": "https://cleanuri.com/kYYb1n"
-        }
-      ]
+          "url": "https://github.com/TraderJoe97/CS20230347_WFO2407_Group-B_Joseph-Monakedi_JSL11"
+    }
+  ]
     }
   ],
   "education": [
